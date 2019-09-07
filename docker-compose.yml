@@ -1,0 +1,19 @@
+version: '3'
+services:
+    mysql:
+        image: mariadb:latest
+        ports:
+            - 3306:3306
+
+        volumes:
+            - ./sql:/app
+            - crdb:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_ROOT_PASSWORD: "rootpwd"
+            MYSQL_USER: 'cruser'
+            MYSQL_PASSWORD: 'crpwd'
+            MYSQL_DATABASE: 'crdb'
+
+volumes:
+    crdb:
