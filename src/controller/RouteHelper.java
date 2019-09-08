@@ -9,9 +9,18 @@ import javax.persistence.TypedQuery;
 
 import model.Route;
 
+/**
+ * Database manager for climbing route tracking application.
+ * 
+ * @author Michael Day
+ *
+ */
 public class RouteHelper {
     static EntityManagerFactory emf;
     
+    /**
+     * Constructor generates entity manager factory.
+     */
     public RouteHelper() {
         try {
             emf = Persistence.createEntityManagerFactory("ClimbingRoutes");
@@ -20,6 +29,10 @@ public class RouteHelper {
         }
     }
 
+    /**
+     * Returns all routes.
+     * @return a List containing all Route objects
+     */
     public List<Route> getAllRoutes() {
         try {
             EntityManager em = emf.createEntityManager();
@@ -31,6 +44,11 @@ public class RouteHelper {
         }
     }
     
+    /**
+     * Returns a single route.
+     * @param id the primary key for the Route object
+     * @return the associated Route object
+     */
     public Route getRouteById(int id) {
         try {
             EntityManager em = emf.createEntityManager();
@@ -43,6 +61,10 @@ public class RouteHelper {
         }
     }
  
+    /**
+     * Adds a route to the database.
+     * @param r the Route object to be inserted
+     */
     public void insertRoute(Route r) {                                    // needs exception handling
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -51,6 +73,10 @@ public class RouteHelper {
         em.close();
     }
     
+    /**
+     * Removes a route from the database.
+     * @param r the Route object to be deleted
+     */
     public void deleteRoute(Route r) {                                     // needs exception handling
         try {
             EntityManager em = emf.createEntityManager();
@@ -63,6 +89,10 @@ public class RouteHelper {
         }
     }
 
+    /**
+     * Modifies an existing route.
+     * @param r the updated Route object
+     */
     public void updateRoute(Route r) {
         try {
             EntityManager em = emf.createEntityManager();
@@ -75,6 +105,11 @@ public class RouteHelper {
         }
     }
 
+    /**
+     * Returns all routes with name exactly matching search string.
+     * @param name String to be matched
+     * @return a List of all Route objects with name matching search string
+     */
     public List<Route> searchRouteByName(String name) {                   // needs exception handling
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -87,6 +122,11 @@ public class RouteHelper {
         return foundRoutes;
     }
 
+    /**
+     * Returns all routes with difficulty exactly matching search string.
+     * @param difficulty String to be matched
+     * @return a List of all Route objects with name matching search string.
+     */
     public List<Route> searchRouteByDifficulty(String difficulty) {              // needs exception handling
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -99,6 +139,9 @@ public class RouteHelper {
         return foundRoutes;
     }
 
+    /**
+     * Closes entity manager factory.
+     */
     public void cleanUp() {                                                   // needs exception handling
         emf.close();
     }   

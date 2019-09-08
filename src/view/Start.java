@@ -1,3 +1,4 @@
+package view;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -6,6 +7,12 @@ import java.util.Scanner;
 import controller.RouteHelper;
 import model.Route;
 
+/**
+ * CLI for climbing route tracking application.
+ * 
+ * @author Michael Day
+ *
+ */
 public class Start {
 
     static RouteHelper rh;
@@ -31,8 +38,12 @@ public class Start {
                 addRoute();
                 break;
             case '3':
-                removeRoute();
+                searchRoute();
                 break;
+            case '4':
+                removeRoute();
+            case '5':
+                modifyRoute();
             default:
                 try {
                     rh.cleanUp();
