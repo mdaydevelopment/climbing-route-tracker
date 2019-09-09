@@ -1,6 +1,5 @@
 .settings
 bin
-sql
 target
 .classpath
 .project
