@@ -81,7 +81,13 @@ public class RouteHelper {
         try {
             EntityManager em = emf.createEntityManager();
             em.getTransaction().begin();
-            em.remove(r);
+            TypedQuery<Route> typedQuery = em.createQuery(
+                    "SELECT r FROM Route r WHERE r.id = :selectedId",
+                    Route.class);
+            typedQuery.setParameter("selectedId", r.getId());
+            typedQuery.setMaxResults(1);
+            Route res = typedQuery.getSingleResult();
+            em.remove(res);
             em.getTransaction().commit();
             em.close();
         } catch (javax.persistence.PersistenceException pe) {
@@ -133,7 +139,7 @@ public class RouteHelper {
         TypedQuery<Route> typedQuery = em.createQuery(
                 "SELECT r FROM Route r WHERE r.difficulty = :selectedDifficulty",
                 Route.class);
-        typedQuery.setParameter("selectedItem", difficulty);
+        typedQuery.setParameter("selectedDifficulty", difficulty);
         List<Route> foundRoutes = typedQuery.getResultList();
         em.close();
         return foundRoutes;

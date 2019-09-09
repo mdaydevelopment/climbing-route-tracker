@@ -29,7 +29,7 @@ public class Start {
             System.out.println("5 - Modify Route");
             System.out.println("6 - Exit");
             System.out.print(">>> ");
-            char c = in.next().charAt(0);
+            char c = in.nextLine().charAt(0);
             switch (c) {
             case '1':
                 displayRoutes();
@@ -42,8 +42,10 @@ public class Start {
                 break;
             case '4':
                 removeRoute();
+                break;
             case '5':
                 modifyRoute();
+                break;
             default:
                 try {
                     rh.cleanUp();
@@ -77,14 +79,14 @@ public class Start {
     static void addRoute() {
         System.out.println("Enter route name:");
         System.out.print(">>> ");
-        String name = in.next();
+        String name = in.nextLine();
         System.out.println("Enter route difficulty:");
         System.out.print(">>> ");
-        String diff = in.next();
+        String diff = in.nextLine();
         System.out.println("Have you sent the route? (Y/N)");
         System.out.print(">>> ");
         boolean sent;
-        char c = in.next().charAt(0);
+        char c = in.nextLine().charAt(0);
         if (c == 'y' || c == 'Y') {
             sent = true;
         } else {
@@ -102,13 +104,13 @@ public class Start {
         System.out.println("Search by (N)ame, (D)ifficulty, or (C)ancel?:");
         System.out.print(">>> ");
         List<Route> rl = null;
-        char c = in.next().charAt(0);
+        char c = in.nextLine().charAt(0);
         switch (c) {
         case 'n':
         case 'N':
             System.out.println("Enter route name:");
             System.out.print(">>> ");
-            String n = in.next();
+            String n = in.nextLine();
             try {
                 rl = rh.searchRouteByName(n);
             } catch (Exception e) {
@@ -119,7 +121,7 @@ public class Start {
         case 'D':
             System.out.println("Enter route difficulty:");
             System.out.print(">>> ");
-            String d = in.next();
+            String d = in.nextLine();
             try {
                 rl = rh.searchRouteByDifficulty(d);
             } catch (Exception e) {
@@ -147,6 +149,7 @@ public class Start {
             System.out.print(">>> ");
             try {
                 int id = in.nextInt();
+                in.nextLine();
                 Route r = rh.getRouteById(id);
                 rh.deleteRoute(r);
             } catch (Exception e) {
@@ -155,7 +158,7 @@ public class Start {
         }
     }
     
-    static void modifyRoute() {
+    static void modifyRoute() {                                          // broken. fails after field selection menu
         if (searchRoute()) {
             int id = 0;
             Route r = null;
@@ -174,25 +177,26 @@ public class Start {
             System.out.println("3 - Completed");
             System.out.println("4 - Cancel");
             System.out.print(">>> ");
-            char c = in.next().charAt(0);
+            in.nextLine();
+            char c = in.nextLine().charAt(0);
             switch (c) {
             case '1':
                 System.out.println("Enter new name");
                 System.out.print(">>> ");
-                String name = in.next();
+                String name = in.nextLine();
                 r.setName(name);
                 break;
             case '2':
                 System.out.println("Enter new difficulty");
                 System.out.print(">>> ");
-                String diff = in.next();
+                String diff = in.nextLine();
                 r.setDifficulty(diff);
                 break;
             case '3':
                 System.out.println("Did you send the route? (Y/N)");
                 System.out.print(">>> ");
                 boolean sent;
-                char d = in.next().charAt(0);
+                char d = in.nextLine().charAt(0);
                 if (d == 'y' || d == 'Y') {
                     sent = true;
                 } else {
