@@ -1,12 +1,13 @@
 version: '3'
 services:
-    mysql:
+    mariadb:
         image: mariadb:latest
         ports:
             - 3306:3306
 
         volumes:
             - ./sql:/app
+            - ./log:/var/log/mysql
             - crdb:/var/lib/mysql
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: "no"
@@ -14,6 +15,14 @@ services:
             MYSQL_USER: 'cruser'
             MYSQL_PASSWORD: 'crpwd'
             MYSQL_DATABASE: 'crdb'
+
+    tomcat:
+        image: tomcat:8.5.46-jdk8-openjdk
+        ports:
+            - 8080:8080
+        volumes:
+            - ./war:/usr/local/tomcat/webapps
+            - ./log:/usr/local/tomcat/logs
 
 volumes:
     crdb:
