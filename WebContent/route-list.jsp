@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Route List</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<main>
 	<form method="post" action="navigationServlet">
 		<table>
 			<c:forEach items="${requestScope.allRoutes}" var="route">
@@ -24,9 +26,14 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<input type="submit" value="edit" name="doThis">
-		<input type="submit" value="delete" name="doThis">
-		<input type="submit" value="add" name="doThis">
+		<table>
+		<tr>
+			<td><input type="submit" value="edit" name="doThis"></td>
+			<td><input type="submit" value="delete" name="doThis"></td>
+			<td><input type="submit" value="add" name="doThis"></td>
+		</tr>
+		</table>
 	</form>
+</main>
 </body>
 </html>

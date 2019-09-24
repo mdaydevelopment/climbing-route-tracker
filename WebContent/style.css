@@ -1,0 +1,41 @@
+@charset "UTF-8";
+html { 
+  background: url(http://www.climbing.co.za/wp-content/uploads/2018/08/alta_van_der_merwe_climbing_chapmans_peak.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+}
+
+main {
+	width: 400px;
+	margin: 20% auto;	
+}
+
+table {
+	width: 100%;	
+}
+
+td {
+	width: 33%;
+}
+
+a:link {
+  color: yellow;
+}
+
+/* visited link */
+a:visited {
+  color: pink;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}

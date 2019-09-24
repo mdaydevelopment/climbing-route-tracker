@@ -6,12 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Update Route</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<main>
 	<form action="editRouteServlet" method="post">
 		<input type="hidden" name="id" value="${routeToEdit.id}">
-		Name: <input type="text" name="name" value="${routeToEdit.name}">
-		Difficulty: <input type="text" name="difficulty" value="${routeToEdit.difficulty}">
+		Name:<br />
+		<input type="text" name="name" value="${routeToEdit.name}"><br />
+		Difficulty:<br />
+		<input type="text" name="difficulty" value="${routeToEdit.difficulty}"><br />
 		Completed: 
 		<c:choose>
 			<c:when test="${routeToEdit.completed}">
@@ -20,8 +24,11 @@
 			<c:otherwise>
 				<input type="checkbox" name="completed">
 			</c:otherwise>
-		</c:choose>
+		</c:choose><br />
 		<input type="submit" value="Edit Route">
 	</form>
+	<br />
+	<a href="viewAllRoutesServlet">View all routes.</a>
+</main>
 </body>
 </html>

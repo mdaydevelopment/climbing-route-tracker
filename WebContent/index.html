@@ -3,15 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Climbing Route Tracker</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<main>
 	<form action="addRouteServlet" method="post">
-		Name: <input type="text" name="name">
-		Difficulty: <input type="text" name="difficulty">
-		Completed: <input type="checkbox" name="completed">
+		Name:<br />
+		<input type="text" name="name"><br />
+		Difficulty:<br />
+		<input type="text" name="difficulty"><br />
+		Completed:
+		<input type="checkbox" name="completed"><br />
 		<input type="submit" value="Add Route">
 	</form>
 	<br />
 	<a href="viewAllRoutesServlet">View all routes.</a>
+</main>
 </body>
 </html>
