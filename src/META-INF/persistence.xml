@@ -3,6 +3,9 @@
 	<persistence-unit name="ClimbingRoutes" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>model.Route</class>
+		<class>model.Climber</class>
+		<class>model.Ascent</class>
+		<class>helper.LocalDateAttributeConverter</class>
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

@@ -1,4 +1,4 @@
-package controller;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import helper.RouteHelper;
 import model.Route;
 
 /**
@@ -32,13 +33,8 @@ public class editRouteServlet extends HttpServlet {
 	    Integer rId = Integer.parseInt(request.getParameter("id"));
 	    String name = request.getParameter("name");
 	    String difficulty = request.getParameter("difficulty");
-	    boolean completed;
-	    if (request.getParameter("completed") != null) {
-	       completed = true; 
-	    } else {
-	       completed = false;
-	    }
-	    Route r = new Route(name, difficulty, completed);
+	    String notes = request.getParameter("notes");
+	    Route r = new Route(name, difficulty, notes);
 	    r.setId(rId);
 	    rh.updateRoute(r);
 	    getServletContext().getRequestDispatcher("/viewAllRoutesServlet").forward(request, response);

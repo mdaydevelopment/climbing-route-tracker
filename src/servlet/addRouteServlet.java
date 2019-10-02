@@ -1,4 +1,4 @@
-package controller;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import helper.RouteHelper;
 import model.Route;
 
 /**
@@ -30,15 +31,10 @@ public class addRouteServlet extends HttpServlet {
 	    RouteHelper rh = new RouteHelper();
 	    String name = request.getParameter("name");
 	    String difficulty = request.getParameter("difficulty");
-	    boolean completed;
-	    if (request.getParameter("completed") != null) {
-	       completed = true; 
-	    } else {
-	       completed = false;
-	    }
-	    Route r = new Route(name, difficulty, completed);
+	    String notes = request.getParameter("notes");
+	    Route r = new Route(name, difficulty, notes);
 	    rh.insertRoute(r);
-	    getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+	    getServletContext().getRequestDispatcher("/new-route.html").forward(request, response);
 	}
 
 }

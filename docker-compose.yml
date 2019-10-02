@@ -1,14 +1,14 @@
 version: '3'
 services:
-    tomcat:
-        image: tomcat:8.5.46-jdk8-openjdk
-        ports:
-            - 8080:8080
-        volumes:
-            - ./war:/usr/local/tomcat/webapps
-            - ./log:/usr/local/tomcat/logs
-        links:
-            - 'mariadb'
+    #    tomcat:
+    #        image: tomcat:8.5.46-jdk8-openjdk
+    #        ports:
+    #            - 8080:8080
+    #        volumes:
+    #            - ./war:/usr/local/tomcat/webapps
+    #            - ./log:/usr/local/tomcat/logs
+    #        links:
+    #            - 'mariadb'
 
     mariadb:
         image: mariadb:latest

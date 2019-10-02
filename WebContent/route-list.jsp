@@ -9,20 +9,24 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<nav>
+	<ul>
+	<li><a href="index.html">Home</a></li>
+	<li><a href="viewAllClimbersServlet">Climbers</a></li>
+	<li><a href="viewAllRoutesServlet">Routes</a></li>
+	<li><a href="new-climber.html">Add Climber</a></li>
+	<li><a href="new-route.html">Add Route</a></li>
+	</ul>
+</nav>
 <main>
-	<form method="post" action="navigationServlet">
+	<form method="post" action="routeNavigationServlet">
 		<table>
 			<c:forEach items="${requestScope.allRoutes}" var="route">
 				<tr>
 					<td><input type="radio" name="id" value="${route.id}"></td>
 					<td>${route.name}</td>
 					<td>${route.difficulty}</td>
-					<td>
-						<c:choose>
-							<c:when test="${route.completed}">Sent</c:when>
-							<c:otherwise>Unsent</c:otherwise>
-						</c:choose>
-					</td>
+					<td>${route.notes}</td>
 				</tr>
 			</c:forEach>
 		</table>

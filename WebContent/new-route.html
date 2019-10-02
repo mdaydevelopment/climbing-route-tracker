@@ -2,11 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Climbing Route Tracker</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<title>New Route</title>
 </head>
 <body>
-<main>
 <nav>
 	<ul>
 	<li><a href="index.html">Home</a></li>
@@ -16,6 +14,16 @@
 	<li><a href="new-route.html">Add Route</a></li>
 	</ul>
 </nav>
+<main>
+	<form action="addRouteServlet" method="post">
+		Name:<br />
+		<input type="text" name="name"><br />
+		Difficulty:<br />
+		<input type="text" name="difficulty"><br />
+		Notes:<br />
+		<input type="text" name="notes"><br />
+		<input type="submit" value="Add Route">
+	</form>
 </main>
 </body>
 </html>

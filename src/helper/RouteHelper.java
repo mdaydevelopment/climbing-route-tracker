@@ -1,4 +1,4 @@
-package controller;
+package helper;
 
 import java.util.List;
 
@@ -81,13 +81,8 @@ public class RouteHelper {
         try {
             EntityManager em = emf.createEntityManager();
             em.getTransaction().begin();
-            TypedQuery<Route> typedQuery = em.createQuery(
-                    "SELECT r FROM Route r WHERE r.id = :selectedId",
-                    Route.class);
-            typedQuery.setParameter("selectedId", r.getId());
-            typedQuery.setMaxResults(1);
-            Route res = typedQuery.getSingleResult();
-            em.remove(res);
+            Route found = em.find(Route.class, r.getId());
+            em.remove(found);
             em.getTransaction().commit();
             em.close();
         } catch (javax.persistence.PersistenceException pe) {

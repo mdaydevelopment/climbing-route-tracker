@@ -9,6 +9,15 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<nav>
+	<ul>
+	<li><a href="index.html">Home</a></li>
+	<li><a href="viewAllClimbersServlet">Climbers</a></li>
+	<li><a href="viewAllRoutesServlet">Routes</a></li>
+	<li><a href="new-climber.html">Add Climber</a></li>
+	<li><a href="new-route.html">Add Route</a></li>
+	</ul>
+</nav>
 <main>
 	<form action="editRouteServlet" method="post">
 		<input type="hidden" name="id" value="${routeToEdit.id}">
@@ -16,15 +25,8 @@
 		<input type="text" name="name" value="${routeToEdit.name}"><br />
 		Difficulty:<br />
 		<input type="text" name="difficulty" value="${routeToEdit.difficulty}"><br />
-		Completed: 
-		<c:choose>
-			<c:when test="${routeToEdit.completed}">
-				<input type="checkbox" name="completed" checked>
-			</c:when>
-			<c:otherwise>
-				<input type="checkbox" name="completed">
-			</c:otherwise>
-		</c:choose><br />
+		Notes:<br />
+		<input type="text" name="notes" value="${routeToEdit.notes}"><br />
 		<input type="submit" value="Edit Route">
 	</form>
 	<br />

@@ -1,4 +1,4 @@
-package controller;
+package servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import helper.RouteHelper;
 import model.Route;
 
 /**
  * Servlet implementation class navigationServlet
  */
-@WebServlet("/navigationServlet")
-public class navigationServlet extends HttpServlet {
+@WebServlet("/routeNavigationServlet")
+public class routeNavigationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public navigationServlet() {
+    public routeNavigationServlet() {
         super();
     }
 
@@ -46,8 +47,8 @@ public class navigationServlet extends HttpServlet {
             break;
         case "delete":
             try {
-                Integer tId = Integer.parseInt(request.getParameter("id"));
-                Route routeToDelete = rh.getRouteById(tId);
+                Integer rId = Integer.parseInt(request.getParameter("id"));
+                Route routeToDelete = rh.getRouteById(rId);
                 rh.deleteRoute(routeToDelete);
                 getServletContext()
                         .getRequestDispatcher("/viewAllRoutesServlet")
@@ -61,7 +62,7 @@ public class navigationServlet extends HttpServlet {
             }
             break;
         case "add":
-            getServletContext().getRequestDispatcher("/index.html")
+            getServletContext().getRequestDispatcher("/new-route.html")
                     .forward(request, response);
             break;
         default:

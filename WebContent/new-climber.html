@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New Climber</title>
+</head>
+<body>
+<nav>
+	<ul>
+	<li><a href="index.html">Home</a></li>
+	<li><a href="viewAllClimbersServlet">Climbers</a></li>
+	<li><a href="viewAllRoutesServlet">Routes</a></li>
+	<li><a href="new-climber.html">Add Climber</a></li>
+	<li><a href="new-route.html">Add Route</a></li>
+	</ul>
+</nav>
+<main>
+	<form action="addClimberServlet" method="post">
+		First Name:<br />
+		<input type="text" name="fName"><br />
+		Last Name:<br />
+		<input type="text" name="lName"><br />
+		Date of Birth:<br />
+			<input type="text" name="month" placeholder="mm" size="4">
+			<input type="text" name="day" placeholder="dd" size="4">
+			<input type="text" name="year" placeholder="yyyy" size="4">
+		<br />
+		<input type="submit" value="Add Climber">
+	</form>
+</main>
+</body>
+</html>
