@@ -20,7 +20,7 @@
 </nav>
 <form method="post" action="allClimbersNavigationServlet">
 	<table>
-	<c:forEach items="${requestScope.allClimbers}" var="currentClimber">
+	<c:forEach items="${allClimbers}" var="currentClimber">
 		<tr>
 			<td><input type="radio" name="id" value="${currentClimber.id}"></td>
 			<td><h2>${currentClimber.fName} ${currentClimber.lName}</h2></td>

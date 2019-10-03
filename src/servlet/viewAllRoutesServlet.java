@@ -21,7 +21,6 @@ public class viewAllRoutesServlet extends HttpServlet {
      */
     public viewAllRoutesServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -29,15 +28,11 @@ public class viewAllRoutesServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().append("Served at: ")
-                .append(request.getContextPath());
-
         RouteHelper rh = new RouteHelper();
         request.setAttribute("allRoutes", rh.getAllRoutes());
         if (rh.getAllRoutes().isEmpty()) {
             request.setAttribute("allRoutes", " ");
         }
-
         getServletContext().getRequestDispatcher("/route-list.jsp")
                 .forward(request, response);
     }

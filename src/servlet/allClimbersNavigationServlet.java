@@ -65,7 +65,7 @@ public class allClimbersNavigationServlet extends HttpServlet {
                 getServletContext().getRequestDispatcher("/viewAllClimbersServlet")
                         .forward(request, response);
             }
-
+            break;
         case "delete":
             try {
                 Integer cId = Integer.parseInt(request.getParameter("id"));

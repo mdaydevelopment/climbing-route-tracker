@@ -86,7 +86,7 @@ public class climberAscentNavigationServlet extends HttpServlet {
                 List<Route> rl = rh.getAllRoutes();
                 request.setAttribute("climber", c);
                 request.setAttribute("routes", rl);
-                getServletContext().getRequestDispatcher("/add-ascent.jsp")
+                getServletContext().getRequestDispatcher("/new-ascent.jsp")
                         .forward(request, response);
             } catch (NumberFormatException e) {
                 getServletContext().getRequestDispatcher("/viewAllClimbersServlet")

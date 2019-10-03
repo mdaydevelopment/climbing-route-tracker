@@ -19,7 +19,7 @@
 </nav>
 <main>
 <form method="post" action="addAscentServlet">
-		Climber: ${climber.fName} ${climber.lName}<br />
+		Climber: ${climber.fName} ${climber.lName} ${climber.id}<br />
 					<input type="hidden" name="climberId" value="${climber.id}">
 		Ascent date: <input type="text" name="month" placeholder="MM" size="4">
 				   <input type="text" name="day" placeholder="DD" size="4">

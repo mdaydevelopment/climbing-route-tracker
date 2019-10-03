@@ -31,10 +31,9 @@ public class Climber {
     @Column(name="dob")
     private LocalDate dob;
     @OneToMany(mappedBy="climber",
-                cascade=CascadeType.ALL,
-                orphanRemoval=true)
-    private List<Ascent> ascents;
-
+                fetch=FetchType.EAGER,
+                cascade=CascadeType.ALL)
+    private List<Ascent> ascents = new ArrayList<>();
 
     public Climber() {
         super();

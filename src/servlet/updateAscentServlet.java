@@ -17,18 +17,27 @@ import model.Climber;
 import model.Route;
 
 /**
- * Servlet implementation class addAscentServlet
+ * Servlet implementation class updateAscentServlet
  */
-@WebServlet("/addAscentServlet")
-public class addAscentServlet extends HttpServlet {
+@WebServlet("/updateAscentServlet")
+public class updateAscentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addAscentServlet() {
+    public updateAscentServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -51,7 +60,7 @@ public class addAscentServlet extends HttpServlet {
         Integer rId = Integer.parseInt(request.getParameter("route"));
         Route r = rh.getRouteById(rId);
         Ascent a = new Ascent(c, r, ad);
-	    ah.insertAscent(a);
+	    ah.updateAscent(a);
 	    request.setAttribute("climberToEdit", c);
 	    //getServletContext().getRequestDispatcher("/viewAllClimbersServlet").forward(request, response);
 	    getServletContext().getRequestDispatcher("/update-climber-ascents.jsp")

@@ -24,14 +24,12 @@ public class viewAllClimbersServlet extends HttpServlet {
      */
     public viewAllClimbersServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	    ClimberHelper ch = new ClimberHelper();
 	    List<Climber> cl = ch.getAllClimbers();
 	    request.setAttribute("allClimbers", cl);
@@ -45,7 +43,6 @@ public class viewAllClimbersServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -21,11 +21,11 @@ public class Ascent {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="ascent_id")
     private int id;
-    @ManyToOne(fetch=FetchType.LAZY,
-                cascade= {CascadeType.PERSIST,CascadeType.MERGE})
+    @ManyToOne(fetch=FetchType.EAGER,
+                cascade=CascadeType.MERGE)
     @JoinColumn(name="climber_id")
     private Climber climber;
-    @ManyToOne(cascade= {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name="route_id")
     private Route route;
     @Column(name="send_date")

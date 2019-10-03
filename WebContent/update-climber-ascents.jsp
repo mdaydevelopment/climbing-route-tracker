@@ -19,6 +19,7 @@
 </nav>
 <main>
 <form method="post" action="climberAscentNavigationServlet">
+	<input type="hidden" name="climber" value="${climberToEdit.id}">
 	<table>
 		<tr>
 			<td><h2>${climberToEdit.fName} ${climberToEdit.lName}</h2></td>
@@ -28,7 +29,6 @@
 			<td></td><td></td><td></td>
 		</tr>
 		<c:forEach items="${climberToEdit.ascents}" var="currentAscent">
-			<input type="hidden" name="climber" value="${climberToEdit.id}">
 			<tr>
 			<td><input type="radio" name="id" value="${currentAscent.id}"></td>
 			<td>Ascent Date: </td>
